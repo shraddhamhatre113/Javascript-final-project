@@ -83,3 +83,11 @@ bulbasaur.attack(0, pikachu);
 // That's just one example. You can call different series of attacks to get different results!
 ```
 ## Bonus: Add some more Pokemon and attack types. 
+
+- ask who are you.
+-welcome in to pokemon.
+-how many players are there?
+-which pokemon you want to select.
+-which skills you want to select?
+-we have 10 skills but you cant select all skills but you can take more skills with less power and less skills with more power
+
