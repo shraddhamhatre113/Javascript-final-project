@@ -94,8 +94,8 @@ let pikachu = new Pokemon(
   ["water", "Ice"],
   ["Fighting", "Ground"]
 );
-let intimidate = new Pokemon(
-  "Intimidate",
+let beedrill = new Pokemon(
+  "Beedrill",
   120,
   120,
   ["Normal", "Fighting", "Ground"],
@@ -168,7 +168,7 @@ let arceus = new Pokemon(
 );
 const allPokemon = [
   pikachu,
-  intimidate,
+  beedrill,
   charizard,
   greninja,
   mewTwo,
