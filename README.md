@@ -1,93 +1,82 @@
-# Pokemon Lite
+# Pokemon Royal Battle
 
-Try to make a simplified version of pokemon!
 
-Create a new index.js file.
+## Functionality
+### $\color{lightpink}{AttackSkill}$
+$\color{green}{AttackSkill}$  class has a name, magic,damage,type and cost parameters. Magic is power of required to use skill while damage means how much will it damage Pokemon's health. Type is category of the skill e.g. Fire, Water,Ice, etc. There are total seven types of skills. Each skill also has purchase cost. Higher the damage, greater the cost. 
 
-## Functionality:
+### $\color{lightpink}{Pokemon}$
+$\color{green}{Pokemon}$  class has a name, health, magic, noDamage, normalTo and weakTo parameters.Each Pokemon has a unique name and their characteristics. Refer the below to know the pokemon details. special variable such as normalTo, weakTo, noDamage has specific effect on health of the pokemon. NormalTo is the type of skill which will affect on health and magic of the pokemon normally, while the weakTo type of skill will reduce the health of the defender twice and reduce the magic attacker normally. NodamageTo skills will not have any affect on the health of the defender but this will reduce the magic of the attacker. Each Pokemon has a purchase power of 1000 and that can be use while selecting the skills. 
 
-* You should have a Pokemon constructor function that creates new pokemon that have name, health, magic and a bunch of skills (the skills can be stored in an array or object).
-* You should have an AttackSkill constructor function for creating new attacks. Attacks consumes the pokemon's magic to cause damage to other pokemons. Each individual pokemon has a specific set of attacks. The AttackSkill method should take in three arguments: the name of the attack, the amount of damage the attack does, and the amount of magic the attack requires. For example, here we're creating a 'lightning' attack skill that causes 40 damage, and requires 30 magic: 
-```javascript
-let lightning = new AttackSkill("lightning", 40, 30);
-```
-These numbers don't have to be correct or correspond to the real Pokemon numbers at all - you can just make them up.
-* A pokemon has no skills when created. It has to use the method learnAttackSkill to learn a new skill. learnAttackSkill should take an attack object as an argument. The specific attacks should be created using the attackSkill constructor function, and then internally added to that Pokemon's 'skills' array. Here is an example of first creating a skill, then adding it to a Pokemon: 
-```javascript
-let lightning = new AttackSkill("lightning", 40, 30); 
-pikachu.learnAttackSkill(lightning);
-```
-* Your pokemon should have a method called showStatus that console.logs its status (how much health, magic left)
-* Your pokemon should have a method called attack which picks one of the pokemon's attack skills to attack another pokemon. This is its most important method! Consider all the possiblites in this method. (e.g what if the pokemon doesn't have enough magic to launch the attack skill?). The attack method should call one of the Pokemon's attack and apply it to the other Pokemon. So for example, if you call the 'lightning' attack (which we created above), it should deal 40 damage to the other Pokemon, and deplete 30 magic from the Pokemon that commited the attack. The attack method should additionally console.log out whether the attack was successful (in other words, whether the attacking pokemon had enough magic to actually carry out the attack), and the result of the attack. The attack method should take in two arguments: the index (or key) of the attack to be used, and the Pokemon object that needs to be attacked. For example, here is an attack being called from Pikachu to Bulbasaur: 
-```javascript
-pikachu.attack(0, bulbasaur);
-```
-* Finally create a method called getMagic to help your pokemon add some magic back to your Pokemon (you can choose exactly how much magic should be added back).
-* You should create a constructor function to create a pokemon, and then add the methods onto the .prototype property of the constructor function. You should then use that constructor function to create all new pokemon.
+Class has following constructor and methods.
+* <font color = 'cyan' size= '3rem'><u>costructor</u></font>: Constructor is used to initialize health, magic and other characteristics.It also sets skills array to empty and initial capacity of 1000.
+* <font color = 'cyan'>learnAttackSkill</font>: This method is used to buy skills. It also checks if the capacity of the Pokemon is greater  than 50  to buy a certain skill and if skill of cost is higher than capacity then it can't purchase the skill.
+* <font color = 'cyan'> attack</font>: This method has a two parameters index and opposition.This method selects the skill and attacks on opposition.there are multiple conditions checked before attack. If type of skill is included in the Oppositions's NodamageTo type of skills then it will not affect on Opposition's health but reduces the magic of attacker. Likewise, If the type of skill is included in the weakTo of the opposition's skill, It will have severe effect on oppositions health(2x). If that type of skill is in the normalTo then it will affect on health and magic of the pokemon normally. Before any attack It also check If the attacker has enough magic to use the skill.
 
-* Similarly, you should have a constructor function to create an attackSkill
 
-For example, the following sequence:
+* <font color = 'cyan'>isMagicAvailabletoUse</font>: This method will use to find the skill with the minimum magic and it will compared with Pokemon's available magic.If the Pokemon's magic is 0 or it is lesser than magic of skill then it will return false.
+* <font color ='cyan'>showStatus</font> This method shows current status of the pokemon.
 
-```javascript
-//Each Pokemon should start with a certain amount of health and magic. For example, here Pikachu starts with 120 health and 80 magic 
-let pikachu = new Pokemon("pikachu", 120, 80);
-let bulbasaur = new Pokemon("bulbasaur", 95, 105);
 
-//Each skill should do a certain amount of damage, and consume a certain amount of magic from the Pokemon that used the skill.
-let lightning = new AttackSkill("lightning", 40, 30);
-let poisonSeed = new AttackSkill ("poison seed", 20, 20);
-pikachu.learnAttackSkill(lightning);
-bulbasaur.learnAttackSkill(poisonSeed);
+## How to play?
+* First you will be asked to select the first pokemon for the first player. The player will select his/her favorite Pokemon from the table by providing the pokemon number.Please give the attention to other characteristics of the Pokemon.It plays crucial role while defending.
+* later you will be presented with 19 20 skills which Pokemon can learn.Make sure you have enough capacity to buy the skills.
+* Above two steps will be applicable for second player.
+* Player 1 will get first chance to attack on Player 2 and vice versa.
+* During the battle, Pokemon's health and magic are constantly reducing and this will affect selection of the skill as the game progresses.
+* It might happen the skill that you selected requires more magic than available.In that case you will be prompted with the message and attack will be wasted
+* The game will end when one of the Pokemon losses his health to zero then another Pokemon will be declared as winner.
+* Incase, both the Pokemon's are run out of magic and health still there, then the pokemon with the highest health will be the winner.
 
-//The first argument to `attack` should be the index (or key) of the attack
-pikachu.attack(0, bulbasaur);
-bulbasaur.attack(0, pikachu);
-pikachu.showStatus();
-bulbasaur.showStatus();
-pikachu.attack(0, bulbasaur);
-pikachu.attack(0, bulbasaur);
-pikachu.getMagic();
-pikachu.attack(0, bulbasaur);
-bulbasaur.attack(0, pikachu);
+## ENJOY THE ROYAL BATTLE!
+<img src='https://i.gifer.com/VhoG.gif'>
 
-// should log out the following to the console:
 
-// pikachu launched skill 'lightning' successfully!
-// bulbasaur got 40 damage
--------------------
-// bulbasaur launched skill 'poison seed' successfully!
-// pikachu got 20 damage
--------------------
-// pikachu status
-// health: 100
-// magic: 50
--------------------
-// bulbasaur status
-// health: 55
-// magic: 85
--------------------
-// pikachu launched skill 'lightning' successfully!
-// bulbasaur got 40 damage
--------------------
-// not enough magic, cannot launch attack!
--------------------
-// pikachu got 20 magic back
--------------------
-// pikachu launched skill 'lightning' successfully!
-// bulbasaur got 40 damage
--------------------
-// bulbasaur is killed!
--------------------
-// bulbasaur is already dead!
-// That's just one example. You can call different series of attacks to get different results!
-```
-## Bonus: Add some more Pokemon and attack types. 
 
-- ask who are you.
--welcome in to pokemon.
--how many players are there?
--which pokemon you want to select.
--which skills you want to select?
--we have 10 skills but you cant select all skills but you can take more skills with less power and less skills with more power
+## $\color{blue}{Pokemons\ table}$
+
+| Pokemon | Health | Magic | Normal to| Weak to | NoDamage to |
+| :------ | :----: | :----:| :------: | :------:| --------: |
+|  <img src="https://img.pokemondb.net/artwork/large/beedrill.jpg" alt="drawing" width="20%"/> Beedrill | 120 | 120  | Normal, Fighting, Ground| Poison, Ice  | Water |
+|  <img src="https://img.pokemondb.net/artwork/large/charizard.jpg" alt="drawing" width="20%"/>Charizard | 120 | 120  | Normal, Poison, Ice, Water, Fire| Ground | Fighting |
+|  <img src="https://img.pokemondb.net/artwork/large/pikachu.jpg" alt="drawing" width="20%"/>Pikachu | 120 | 120  | Normal, Fire, Poison| Water, Ice| Fighting,Ground |
+|  <img src="https://img.pokemondb.net/artwork/large/greninja.jpg" alt="drawing" width="20%"/>Greninja | 120 | 120  | Normal, Ice, Water, Ground, Fighting | Poison | Fire |
+|  <img src="https://img.pokemondb.net/artwork/large/mewtwo.jpg" alt="drawing" width="20%"/> Mewtwo | 120 | 120  | Normal, Ice, Fire | Ground, Fighting | Poison, Water |
+|<img src="https://img.pokemondb.net/artwork/large/bulbasaur.jpg" alt="drawing" width="20%"/> Bulbasuar | 120 | 120  | Normal, Poison, Water, Ground | Ice, Fire | Fighting |
+|  <img src="https://img.pokemondb.net/artwork/large/squirtle.jpg" alt="drawing" width="20%"/> Squirtel | 120 | 120  | Normal, Ice, Ground, Fighting | Poison | Water, Fire |
+|  <img src="https://img.pokemondb.net/artwork/large/eevee.jpg" alt="drawing" width="20%"/> Evee | 120 | 120  | Normal, Ground, Poison, Fire | Fighting | Water, Ice |
+|  <img src="https://img.pokemondb.net/artwork/large/alakazam.jpg" alt="drawing" width="20%"/> Alakazam | 120 | 120  | Normal, Water, Ground, Fighting | Ice | Poison, Fire |
+|  <img src="https://img.pokemondb.net/artwork/large/arceus.jpg" alt="drawing" width="20%"/> Arceus | 120 | 120  | Normal, Fire, Poison, Fighting | Ground, Ice  | Water |
+
+## $\color{blue}{Pokemon\ Skills}$
+| Skills | Damage | Magic | Type | Cost|
+| :----- | :----: | :----:| :---: | ---: | 
+| Body slam | 7 | 5  | <img src ="https://img.pokemondb.net/images/icons/move-special.png" alt="drawing" width= "20%"/> Normal| 50 |
+| Hyperbeam | 8 | 7 | <img src ="https://img.pokemondb.net/images/icons/move-special.png" alt="drawing" width= "20%"/> Normal| 50 |
+| Icepunch | 13 | 9 | <img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/ice-crystal-2737627-2270047.png" alt ="drawing" width ="16px" height="16px"> Ice | 60 |
+| Bonemerang | 13 | 10  | <img src = "https://www.shareicon.net/data/256x256/2015/11/03/150126_quake_256x256.png" alt ="ground" width = "16px" height = "16px"/> Ground | 70 |
+| Doublekick | 16 | 11 | <img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/knife-6925265-5675391.png" alt = "fighting" width = "16px" height = "16px"/> Fighting | 80 | 
+| Cometpunch | 15 | 12  | <img src ="https://img.pokemondb.net/images/icons/move-special.png" alt="drawing" width= "20%"/> Normal| 90 |
+| SeismicToss | 16 | 13  | <img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/knife-6925265-5675391.png" alt = "fighting" width = "16px" height = "16px"/> Fighting | 100 |
+| Clamp | 18 | 14  |  <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTGsXE4yxVpvbhBTomsaHALwz-UiygL78qpQ&usqp=CAU" alt ="water" width = "16px" height = "16px"/> Water | 110 |
+| Sandattack | 19 | 16  | <img src = "https://www.shareicon.net/data/256x256/2015/11/03/150126_quake_256x256.png" alt ="ground" width = "16px" height = "16px"/> Ground | 20 |
+| Watergun | 21 | 17 |  <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTGsXE4yxVpvbhBTomsaHALwz-UiygL78qpQ&usqp=CAU" alt ="water" width = "16px" height = "16px"/> Water | 130 |
+| Earthquak | 20 | 18 | <img src = "https://www.shareicon.net/data/256x256/2015/11/03/150126_quake_256x256.png" alt ="ground" width = "16px" height = "16px"/> Ground | 140 |
+| Blizzard | 23 | 20 |<img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/ice-crystal-2737627-2270047.png" alt ="drawing" width ="16px" height="16px"> Ice | 150 |
+| Hydropump | 25 | 22  | <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTGsXE4yxVpvbhBTomsaHALwz-UiygL78qpQ&usqp=CAU" alt ="water" width = "16px" height = "16px"/> Water | 160 |
+| Poisongas | 27 | 23  | <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQvw4qSPQ5_Ya14Kfw8o_n1KWPZP1LljaTbw&usqp=CAU" alt = "poison" width = "16px" height = "16px"/> Poison | 170 |
+| Firespin | 28 | 24 | <img src = "https://i2.wp.com/www.mastermeltgroup.com/wp-content/uploads/2019/02/fire.png?ssl=1" alt ="drawing" width = "16px" height = "16px"/> Fire | 180 |
+| Acid | 30 | 25 | <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQvw4qSPQ5_Ya14Kfw8o_n1KWPZP1LljaTbw&usqp=CAU" alt = "poison" width = "16px" height = "16px"/> Poison | 190 |
+| Mist | 32 | 27 | <img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/ice-crystal-2737627-2270047.png" alt ="drawing" width ="16px" height="16px"> Ice | 200 |
+| Poisonsting | 33 | 28  | <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQvw4qSPQ5_Ya14Kfw8o_n1KWPZP1LljaTbw&usqp=CAU" alt = "poison" width = "16px" height = "16px"/>  Poison | 215 |
+| Rollingkick | 35 | 30 | <img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/knife-6925265-5675391.png" alt = "fighting" width = "16px" height = "16px"/> Fighting | 230 |
+| Fireblast | 40 | 35 |  <img src = "https://i2.wp.com/www.mastermeltgroup.com/wp-content/uploads/2019/02/fire.png?ssl=1" alt ="drawing" width = "16px" height = "16px"/> Fire | 250 |
+
+
+## REFERENCE
+* https://www.theloadout.com/pokemon-type-chart
+* https://pokemondb.net/pokedex/bulbasaur
+
+
+
 
