@@ -2,14 +2,14 @@
 
 
 ## Functionality
-### $\color{lightpink}{AttackSkill}$
+### $\color{pink}{AttackSkill class}$
 $\color{green}{AttackSkill}$  class has a name, magic,damage,type and cost parameters. Magic is power of required to use skill while damage means how much will it damage Pokemon's health. Type is category of the skill e.g. Fire, Water,Ice, etc. There are total seven types of skills. Each skill also has purchase cost. Higher the damage, greater the cost. 
 
-### $\color{lightpink}{Pokemon}$
+### $\color{pink}{Pokemon class}$
 $\color{green}{Pokemon}$  class has a name, health, magic, noDamage, normalTo and weakTo parameters.Each Pokemon has a unique name and their characteristics. Refer the below to know the pokemon details. special variable such as normalTo, weakTo, noDamage has specific effect on health of the pokemon. NormalTo is the type of skill which will affect on health and magic of the pokemon normally, while the weakTo type of skill will reduce the health of the defender twice and reduce the magic attacker normally. NodamageTo skills will not have any affect on the health of the defender but this will reduce the magic of the attacker. Each Pokemon has a purchase power of 1000 and that can be use while selecting the skills. 
 
 Class has following constructor and methods.
-* <font color = 'cyan' size= '3rem'><u>costructor</u></font>: Constructor is used to initialize health, magic and other characteristics.It also sets skills array to empty and initial capacity of 1000.
+* <span style ='color:cyan; font-size:3rem'><u>constructor</u></span>: Constructor is used to initialize health, magic and other characteristics.It also sets skills array to empty and initial capacity of 1000.
 * <font color = 'cyan'>learnAttackSkill</font>: This method is used to buy skills. It also checks if the capacity of the Pokemon is greater  than 50  to buy a certain skill and if skill of cost is higher than capacity then it can't purchase the skill.
 * <font color = 'cyan'> attack</font>: This method has a two parameters index and opposition.This method selects the skill and attacks on opposition.there are multiple conditions checked before attack. If type of skill is included in the Oppositions's NodamageTo type of skills then it will not affect on Opposition's health but reduces the magic of attacker. Likewise, If the type of skill is included in the weakTo of the opposition's skill, It will have severe effect on oppositions health(2x). If that type of skill is in the normalTo then it will affect on health and magic of the pokemon normally. Before any attack It also check If the attacker has enough magic to use the skill.
 
