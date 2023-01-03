@@ -80,8 +80,9 @@ class Pokemon {
     return this.magic < minSkill.magic ? false : true;
   }
   showStatus() {
-    console.log(
-      `${this.name} status\nhealth:${this.health}\nmagic: ${this.magic}`
+    console.table([{
+      name:this.name,health :this.health, magic:this.magic
+      }]
     );
   }
 }

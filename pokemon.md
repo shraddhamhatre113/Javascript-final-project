@@ -1,32 +1,39 @@
-# Pokemon Lite
+# Pokemon Royal Battle
 
-## REFERENCE
-* https://www.theloadout.com/pokemon-type-chart
-* https://pokemondb.net/pokedex/bulbasaur
+
 ## Functionality
-* First created $\color{green}{AttackSkill}$ class it has a name, magic,damage,type and cost parameters.
-magic meas power of opposition party and damage means health of the skill. type means I created seven types of skill and this will tell you which type of skill it is.
+### $\color{lightpink}{AttackSkill}$
+$\color{green}{AttackSkill}$  class has a name, magic,damage,type and cost parameters. Magic is power of required to use skill while damage means how much will it damage Pokemon's health. Type is category of the skill e.g. Fire, Water,Ice, etc. There are total seven types of skills. Each skill also has purchase cost. Higher the damage, greater the cost. 
 
-* I created $\color{green}{Pokemon}$ class that have name, health,magic,noDamage, normalto and weakto.name means pokemon name, magic and health is the pokemon's health and magic. normalto means if that type of skill is in the normalto then it will affect on health and magic of the pokemon normally.In the weakto if type of skillis included in weakto it will reduce the health twice and reduce the magic normally. nodamgeto means if that type of sill is in nodamageto then it will not affect on its health but this will reduce the magic of the attacker it means attack is wasted. the skills are stored in an array or object.capacity and skills(array of skills) are not mention in parameter.for skills i declare empty array later on he will learn the skill or buy the skill.capacity means how much skills he can buy and I fixed te capacity1000.
+### $\color{lightpink}{Pokemon}$
+$\color{green}{Pokemon}$  class has a name, health, magic, noDamage, normalTo and weakTo parameters.Each Pokemon has a unique name and their characteristics. Refer the below to know the pokemon details. special variable such as normalTo, weakTo, noDamage has specific effect on health of the pokemon. NormalTo is the type of skill which will affect on health and magic of the pokemon normally, while the weakTo type of skill will reduce the health of the defender twice and reduce the magic attacker normally. NodamageTo skills will not have any affect on the health of the defender but this will reduce the magic of the attacker. Each Pokemon has a purchase power of 1000 and that can be use while selecting the skills. 
 
-* pokemon constructor has four method.first one is $\color{pink}{learnskill}$  method. first one is learn AttackSkill, In this method wrote two condition. If the capacity is less than 50  and if skill of cost is higher than capacity then you can't purchase.
+Class has following constructor and methods.
+* <font color = 'cyan' size= '3rem'><u>costructor</u></font>: Constructor is used to initialize health, magic and other characteristics.It also sets skills array to empty and initial capacity of 1000.
+* <font color = 'cyan'>learnAttackSkill</font>: This method is used to buy skills. It also checks if the capacity of the Pokemon is greater  than 50  to buy a certain skill and if skill of cost is higher than capacity then it can't purchase the skill.
+* <font color = 'cyan'> attack</font>: This method has a two parameters index and opposition.This method selects the skill and attacks on opposition.there are multiple conditions checked before attack. If type of skill is included in the Oppositions's NodamageTo type of skills then it will not affect on Opposition's health but reduces the magic of attacker. Likewise, If the type of skill is included in the weakTo of the opposition's skill, It will have severe effect on oppositions health(2x). If that type of skill is in the normalTo then it will affect on health and magic of the pokemon normally. Before any attack It also check If the attacker has enough magic to use the skill.
 
-* Second method is $\color{pink}{attack}$. This one is a important method. This method has a two parameters index and opposition().
-- This method has a multiple condition. If type of skill include in the pokemon's Nodamageto type of skills then it will affect on attackers's magic this means attack is wasted. 
-- If the type of skill includes in the weakto this will reduce the pokemon's health twice and reduce the magic normally. 
-- If that type of skill includes in the normalto then it will affect on health and magic of the pokemon normally. 
-- opposition health is equal to zero means opposition is dead and  game is over. 
-- Pokemon's magic lesser than 0 or opposition magic lesser than 0  then opposition is dead .
 
-* Third method  is $\color{pink}{isMagicAvailabletoUse}$. In this method I am finding minimum magic of both the pokemon's.
-* I created two tables one for pokemon and second for skills
-* If you use console.table for pokemon you will get table in the prompt.
-declare the variable firstpokemonIndex and secondpokemonIndex to access the pokemon through pokemonIndex .
-* wrote console.table for select the skills in the prompt.
-* In while loop I wrote condition for select the pokemon. If the fistpokemon's capacity 50 or more than 50 then only you can buy skills. while loop has a condition if selected skill is undefined or empty or selectedskill's index is number or selected skills not more then 19.
+* <font color = 'cyan'>isMagicAvailabletoUse</font>: This method will use to find the skill with the minimum magic and it will compared with Pokemon's available magic.If the Pokemon's magic is 0 or it is lesser than magic of skill then it will return false.
+* <font color ='cyan'>showStatus</font> This method shows current status of the pokemon.
 
-*
-## $\color{blue}{Table\ for\ select\ the\ Pokemon}$
+
+## How to play?
+* First you will be asked to select the first pokemon for the first player. The player will select his/her favorite Pokemon from the table by providing the pokemon number.Please give the attention to other characteristics of the Pokemon.It plays crucial role while defending.
+* later you will be presented with 19 20 skills which Pokemon can learn.Make sure you have enough capacity to buy the skills.
+* Above two steps will be applicable for second player.
+* Player 1 will get first chance to attack on Player 2 and vice versa.
+* During the battle, Pokemon's health and magic are constantly reducing and this will affect selection of the skill as the game progresses.
+* It might happen the skill that you selected requires more magic than available.In that case you will be prompted with the message and attack will be wasted
+* The game will end when one of the Pokemon losses his health to zero then another Pokemon will be declared as winner.
+* Incase, both the Pokemon's are run out of magic and health still there, then the pokemon with the highest health will be the winner.
+
+## ENJOY THE ROYAL BATTLE!
+<img src='https://i.gifer.com/VhoG.gif'>
+
+
+
+## $\color{blue}{Pokemons\ table}$
 
 | Pokemon | Health | Magic | Normal to| Weak to | NoDamage to |
 | :------ | :----: | :----:| :------: | :------:| --------: |
@@ -41,7 +48,7 @@ declare the variable firstpokemonIndex and secondpokemonIndex to access the poke
 |  <img src="https://img.pokemondb.net/artwork/large/alakazam.jpg" alt="drawing" width="20%"/> Alakazam | 120 | 120  | Normal, Water, Ground, Fighting | Ice | Poison, Fire |
 |  <img src="https://img.pokemondb.net/artwork/large/arceus.jpg" alt="drawing" width="20%"/> Arceus | 120 | 120  | Normal, Fire, Poison, Fighting | Ground, Ice  | Water |
 
-## $\color{blue}{Table\ for\ select\ the\ Skills}$
+## $\color{blue}{Pokemon\ Skills}$
 | Skills | Damage | Magic | Type | Cost|
 | :----- | :----: | :----:| :---: | ---: | 
 | Body slam | 7 | 5  | <img src ="https://img.pokemondb.net/images/icons/move-special.png" alt="drawing" width= "20%"/> Normal| 50 |
@@ -55,7 +62,7 @@ declare the variable firstpokemonIndex and secondpokemonIndex to access the poke
 | Sandattack | 19 | 16  | <img src = "https://www.shareicon.net/data/256x256/2015/11/03/150126_quake_256x256.png" alt ="ground" width = "16px" height = "16px"/> Ground | 20 |
 | Watergun | 21 | 17 |  <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTGsXE4yxVpvbhBTomsaHALwz-UiygL78qpQ&usqp=CAU" alt ="water" width = "16px" height = "16px"/> Water | 130 |
 | Earthquak | 20 | 18 | <img src = "https://www.shareicon.net/data/256x256/2015/11/03/150126_quake_256x256.png" alt ="ground" width = "16px" height = "16px"/> Ground | 140 |
-| Blizzard | 23 | 20  |<img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/ice-crystal-2737627-2270047.png" alt ="drawing" width ="16px" height="16px"> Ice | 150 |
+| Blizzard | 23 | 20 |<img src = "https://cdn.iconscout.com/icon/premium/png-256-thumb/ice-crystal-2737627-2270047.png" alt ="drawing" width ="16px" height="16px"> Ice | 150 |
 | Hydropump | 25 | 22  | <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTGsXE4yxVpvbhBTomsaHALwz-UiygL78qpQ&usqp=CAU" alt ="water" width = "16px" height = "16px"/> Water | 160 |
 | Poisongas | 27 | 23  | <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQvw4qSPQ5_Ya14Kfw8o_n1KWPZP1LljaTbw&usqp=CAU" alt = "poison" width = "16px" height = "16px"/> Poison | 170 |
 | Firespin | 28 | 24 | <img src = "https://i2.wp.com/www.mastermeltgroup.com/wp-content/uploads/2019/02/fire.png?ssl=1" alt ="drawing" width = "16px" height = "16px"/> Fire | 180 |
@@ -66,7 +73,9 @@ declare the variable firstpokemonIndex and secondpokemonIndex to access the poke
 | Fireblast | 40 | 35 |  <img src = "https://i2.wp.com/www.mastermeltgroup.com/wp-content/uploads/2019/02/fire.png?ssl=1" alt ="drawing" width = "16px" height = "16px"/> Fire | 250 |
 
 
-
+## REFERENCE
+* https://www.theloadout.com/pokemon-type-chart
+* https://pokemondb.net/pokedex/bulbasaur
 
 
 
