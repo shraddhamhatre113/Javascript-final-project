@@ -3,16 +3,16 @@
 
 ## Functionality
 ### $\color{purple}{AttackSkill\ class}$
-$\color{green}{AttackSkill}$  class has a name, magic,damage,type and cost parameters. Magic is power of required to use skill while damage means how much will it damage Pokemon's health. Type is category of the skill e.g. Fire, Water,Ice, etc. There are total seven types of skills. Each skill also has purchase cost. Higher the damage, greater the cost. 
+$\color{green}{AttackSkill}$  class has a name, magic,damage,type and cost parameters. Magic is power required to use skill while damage means how much it will damage Pokemon's health. Type is category of the skill e.g. Fire, Water,Ice, etc. There are total seven types of skills. Each skill also has purchase cost. Higher the damage, greater the cost. 
 
 ### $\color{purple}{Pokemon\ class}$
-$\color{green}{Pokemon}$  class has a name, health, magic, noDamage, normalTo and weakTo parameters.Each Pokemon has a unique name and their characteristics. Refer the below to know the pokemon details. special variable such as normalTo, weakTo, noDamage has specific effect on health of the pokemon. NormalTo is the type of skill which will affect on health and magic of the pokemon normally, while the weakTo type of skill will reduce the health of the defender twice and reduce the magic attacker normally. NodamageTo skills will not have any affect on the health of the defender but this will reduce the magic of the attacker. Each Pokemon has a purchase power of 1000 and that can be use while selecting the skills. 
+$\color{green}{Pokemon}$  class has a name, health, magic, noDamage, normalTo and weakTo parameters.Each Pokemon has a unique name and their characteristics. Refer the below to know the pokemon details. special variable such as normalTo, weakTo, noDamage has specific effect on health of the pokemon. NormalTo is the type of skill which will affect on health and magic of the pokemon normally, while the weakTo type of skill will reduce the health of the defender twice and reduce the magic of the attacker normally. NodamageTo skills will not have any affect on the health of the defender but this will reduce the magic of the attacker. Each Pokemon has a purchase power of 1000 and that can be use while selecting the skills. 
 
 Class has following constructor and methods.
 
 $\color{red}{constructor}$: Constructor is used to initialize health, magic and other characteristics.It also sets skills array to empty and initial capacity of 1000.
 
-$\color{red}{learnAttackSkill}$: This method is used to buy skills. It also checks if the capacity of the Pokemon is greater  than 50  to buy a certain skill and if skill of cost is higher than capacity then it can't purchase the skill.
+$\color{red}{learnAttackSkill}$: This method is used to buy skills. It also checks if the capacity of the Pokemon is greater  than 50  to buy a certain skill and if cost of skill is higher than capacity then it can't purchase the skill.
 
 $\color{red}{attack}$: This method has a two parameters index and opposition.This method selects the skill and attacks on opposition.there are multiple conditions checked before attack. If type of skill is included in the Oppositions's NodamageTo type of skills then it will not affect on Opposition's health but reduces the magic of attacker. Likewise, If the type of skill is included in the weakTo of the opposition's skill, It will have severe effect on oppositions health(2x). If that type of skill is in the normalTo then it will affect on health and magic of the pokemon normally. Before any attack It also check If the attacker has enough magic to use the skill.
 
@@ -24,11 +24,11 @@ $\color{red}{showStatus}$: This method shows current status of the pokemon.
 
 ## How to play?
 * First you will be asked to select the first pokemon for the first player. The player will select his/her favorite Pokemon from the table by providing the pokemon number.Please give the attention to other characteristics of the Pokemon.It plays crucial role while defending.
-* later you will be presented with 19 20 skills which Pokemon can learn.Make sure you have enough capacity to buy the skills.
+* later you will be presented with 20 skills which Pokemon can learn.Make sure you have enough capacity to buy the skills.
 * Above two steps will be applicable for second player.
 * Player 1 will get first chance to attack on Player 2 and vice versa.
 * During the battle, Pokemon's health and magic are constantly reducing and this will affect selection of the skill as the game progresses.
-* It might happen the skill that you selected requires more magic than available.In that case you will be prompted with the message and attack will be wasted
+* It might happen the skill that you selected requires more magic than available.In that case you will be prompted with the message and attack is wasted
 * The game will end when one of the Pokemon losses his health to zero then another Pokemon will be declared as winner.
 * Incase, both the Pokemon's are run out of magic and health still there, then the pokemon with the highest health will be the winner.
 
@@ -41,16 +41,16 @@ $\color{red}{showStatus}$: This method shows current status of the pokemon.
 
 | Pokemon | Health | Magic | Normal to| Weak to | NoDamage to |
 | :------ | :----: | :----:| :------: | :------:| --------: |
-|  <img src="https://img.pokemondb.net/artwork/large/beedrill.jpg" alt="drawing" width="20%"/> Beedrill | 120 | 120  | Normal, Fighting, Ground| Poison, Ice  | Water |
+|  <img src="https://img.pokemondb.net/artwork/avif/arbok.avif" alt="drawing" width="20%"/> Arbok | 120 | 120  | Normal, Fighting, Ground| Poison, Ice  | Water |
 |  <img src="https://img.pokemondb.net/artwork/large/charizard.jpg" alt="drawing" width="20%"/>Charizard | 120 | 120  | Normal, Poison, Ice, Water, Fire| Ground | Fighting |
 |  <img src="https://img.pokemondb.net/artwork/large/pikachu.jpg" alt="drawing" width="20%"/>Pikachu | 120 | 120  | Normal, Fire, Poison| Water, Ice| Fighting,Ground |
-|  <img src="https://img.pokemondb.net/artwork/large/greninja.jpg" alt="drawing" width="20%"/>Greninja | 120 | 120  | Normal, Ice, Water, Ground, Fighting | Poison | Fire |
+|  <img src="https://img.pokemondb.net/artwork/avif/psyduck.avif" alt="drawing" width="20%"/>Psyduck | 120 | 120  | Normal, Ice, Water, Ground, Fighting | Poison | Fire |
 |  <img src="https://img.pokemondb.net/artwork/large/mewtwo.jpg" alt="drawing" width="20%"/> Mewtwo | 120 | 120  | Normal, Ice, Fire | Ground, Fighting | Poison, Water |
 |<img src="https://img.pokemondb.net/artwork/large/bulbasaur.jpg" alt="drawing" width="20%"/> Bulbasuar | 120 | 120  | Normal, Poison, Water, Ground | Ice, Fire | Fighting |
 |  <img src="https://img.pokemondb.net/artwork/large/squirtle.jpg" alt="drawing" width="20%"/> Squirtel | 120 | 120  | Normal, Ice, Ground, Fighting | Poison | Water, Fire |
 |  <img src="https://img.pokemondb.net/artwork/large/eevee.jpg" alt="drawing" width="20%"/> Evee | 120 | 120  | Normal, Ground, Poison, Fire | Fighting | Water, Ice |
-|  <img src="https://img.pokemondb.net/artwork/large/alakazam.jpg" alt="drawing" width="20%"/> Alakazam | 120 | 120  | Normal, Water, Ground, Fighting | Ice | Poison, Fire |
-|  <img src="https://img.pokemondb.net/artwork/large/arceus.jpg" alt="drawing" width="20%"/> Arceus | 120 | 120  | Normal, Fire, Poison, Fighting | Ground, Ice  | Water |
+|  <img src="https://img.pokemondb.net/artwork/avif/lucario.avif" alt="drawing" width="20%"/> Lucario | 120 | 120  | Normal, Water, Ground, Fighting | Ice | Poison, Fire |
+|  <img src="https://img.pokemondb.net/artwork/avif/chikorita.avif" alt="drawing" width="20%"/> Chikorita | 120 | 120  | Normal, Fire, Poison, Fighting | Ground, Ice  | Water |
 
 ## $\color{blue}{Pokemon\ Skills}$
 | Skills | Damage | Magic | Type | Cost|
