@@ -23,6 +23,7 @@ $\color{red}{showStatus}$: This method shows current status of the pokemon.
 
 
 ## How to play?
+* Run the code via this command 'node index.js'
 * First you will be asked to select the first pokemon for the first player. The player will select his/her favorite Pokemon from the table by providing the pokemon number.Please give the attention to other characteristics of the Pokemon.It plays crucial role while defending.
 * later you will be presented with 20 skills which Pokemon can learn.Make sure you have enough capacity to buy the skills.
 * Above two steps will be applicable for second player.
