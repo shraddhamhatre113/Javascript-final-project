@@ -34,7 +34,7 @@ $\color{red}{showStatus}$: This method shows current status of the pokemon.
 * Incase, both the Pokemon's are run out of magic and health still there, then the pokemon with the highest health will be the winner.
 
 ## ENJOY THE ROYAL BATTLE!
-<img src='https://i.gifer.com/VhoG.gif'>
+![pokemon](<img src='https://i.gifer.com/VhoG.gif'>)
 
 
 
